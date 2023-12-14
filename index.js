@@ -1,34 +1,54 @@
 let gamebox = document.querySelectorAll(".gamediv");
 let playero = true;
 
+let winpattern=[
+  [0,1,2],
+  [0,3,6],
+  [0,4,8],
+  [1,4,7],
+[2,5,8],
+[2,4,6],
+[3,4,5],
+[6,7,8],
+]
+
+
 gamebox.forEach((element) => {
-  console.log(element.innerHTML);
-  if (playero === true) {
-    element.addEventListener("click", clickfunction);
-    function clickfunction() {
-      element.innerHTML = "o";
-    }
-    playero = false;
-  } else {
-    element.addEventListener("click", clickxfunction);
-    function clickxfunction() {
-      element.innerHTML = "x";
-      
-    }
-    playero = true;
-  }
 
+  element.addEventListener("click",()=>{
+    console.log("box was clicked");
+if(playero){
+  element.innerText= "o";
+  playero= false
+}
+else{
+  element.innerText = "x";
+  playero = true;
+}
+element.disabled = true;
+checkwinner()
 
-  checkwinner()
+})
+  
 });
 
 function checkwinner(){
-    posi1= gamebox[0].innerHTML
-    posi2= gamebox[1].innerHTML
-    posi3= gamebox[3].innerHTML
+
+
+  for(val of winpattern){
+    console.log(val);
+    posi1= gamebox[val[0]].innerText;
+    posi2= gamebox[val[1]].innerText;
+    posi3= gamebox[val[2]].innerText;
     console.log(posi1, posi2 , posi3);
-    if(posi1 === posi2 && posi2 === posi3){
+    if(posi1 != "" && posi2 != "", posi3 != ""){
+      if(posi1 == posi2 && posi2 == posi3){
+
         console.log("winner");
+      }
     }
+  }
+   
+    
 
 }
