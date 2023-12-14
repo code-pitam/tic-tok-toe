@@ -1,4 +1,7 @@
 let gamebox = document.querySelectorAll(".gamediv");
+let resetBtn = document.querySelector(".btn")
+let restartBtn = document.querySelector(".nbtn");
+
 let playero = true;
 
 let winpattern=[
@@ -45,6 +48,7 @@ function checkwinner(){
       if(posi1 == posi2 && posi2 == posi3){
 
         console.log("winner");
+        
       }
     }
   }
@@ -52,3 +56,20 @@ function checkwinner(){
     
 
 }
+function resetgame() {
+    console.log("button clicked");
+    playero = true;
+    gamebox.forEach((element) => {
+      element.innerText = "";
+      element.disabled = false;
+    });
+    
+}
+
+resetBtn.addEventListener("click",()=>{
+resetgame()
+})
+restartBtn.addEventListener("click", () => {
+ resetgame()
+});
+
