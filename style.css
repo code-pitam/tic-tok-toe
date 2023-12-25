@@ -41,3 +41,15 @@ flex-direction: column;
   box-sizing: border-box;
 
 }
+.w-display{
+  display:inline !important;
+}
+.winner{
+ display: none;
+  font-size: 50px;
+  color: rgb(255, 0, 0);
+  position: absolute;
+  top: 50px;
+  margin: 0 auto;
+  right: 400px;
+}

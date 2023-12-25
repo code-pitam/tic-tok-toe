@@ -1,6 +1,7 @@
 let gamebox = document.querySelectorAll(".gamediv");
 let resetBtn = document.querySelector(".btn")
 let restartBtn = document.querySelector(".nbtn");
+let winner = document.querySelector(".winner")
 
 let playero = true;
 
@@ -48,6 +49,11 @@ function checkwinner(){
       if(posi1 == posi2 && posi2 == posi3){
 
         console.log("winner");
+
+winner.classList.add("w-display");
+
+
+
         
       }
     }
@@ -59,6 +65,8 @@ function checkwinner(){
 function resetgame() {
     console.log("button clicked");
     playero = true;
+    winner.classList.remove("w-display");
+
     gamebox.forEach((element) => {
       element.innerText = "";
       element.disabled = false;
